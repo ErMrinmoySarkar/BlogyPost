@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./assiets/logo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <title>BlogyPost - to post anything </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    </head>
+    </head>
+    <body>
+        <header>
+            <div class="header">
+                <p>&nbsp;&nbsp;<i class="fa-solid fa-file-word logo"></i> &nbsp;&nbsp;BlogyPost</p>
+                <p class="about">Blog</p>
+            </div>
+        </header>
+
+        <div class="welcome">
+            <h1 class="hello">Hello, <h1 class="learn">&nbsp;&nbsp;Learner</h1></h1>
+        </div>
+        <p class="post">Look and post your image</p>
+        <div class="card_container">
+            <%for(post of posts){ %>
+                <div class="card">
+                    <h3 class="name"><%= post.username %></h3>
+                    <div class="img_card">
+                        <img src="<%= post.img%>" alt="imgae"/>
+                    </div>
+                    <p class="content"><%= post.content%></p>
+                    <p class="like">&hearts; <%=post.likes%></p>
+                    <a href="http://localhost:8080/posts/<%=post.id%>/edit" class="add">Edit post</a>
+                    <a href="http://localhost:8080/posts/<%=post.id%>" class="add">Show details</a>
+        
+                    <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                        <button class="delete">Delete</button>
+                    </form>
+                </div>
+            <%}%>
+        </div> 
+        <br/>
+       <a href="http://localhost:8080/posts/new">Add New Post</a>
+        <footer>
+            <div class="footer_nav_bar">
+                <h4 class="endline"> I am curious about Wevlopment, I future you will see something really big &hearts; ;</h4>
+            </div>
+        </footer>
+    </body>
+</html>
